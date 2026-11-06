@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ResAIrch · AI 研究星图</title>
+<meta name="description" content="一张可交互的 AI 研究星图：26 个领域，点击任一星球跃迁进入综述——前沿在做什么、还有哪些有品味的 idea、入场需要什么、大家怎么做、两周试错路线与必读论文。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<svg id="map" role="img" aria-label="AI 研究星图">
+  <defs id="defs"></defs>
+  <g id="vp">
+    <g id="nebula"></g>
+    <g id="orbits"></g>
+    <g id="links"></g>
+    <g id="leaves"></g>
+    <g id="hubs"></g>
+    <g id="doms"></g>
+    <g id="core"></g>
+  </g>
+</svg>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo" aria-hidden="true"><span></span></div>
+    <div>
+      <h1>ResAIrch</h1>
+      <p>AI 研究星图 · <b id="count">26</b> 个领域 · 点击星球跃迁进入</p>
+    </div>
+  </div>
+  <div class="tools">
+    <label class="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="搜索领域或关键词，如 扩散 / SLAM / 分割" autocomplete="off">
+      <kbd>/</kbd>
+    </label>
+    <button id="btnRandom" class="chip-btn" title="随机跃迁到一个领域">随机跃迁</button>
+    <button id="btnFit" class="chip-btn" title="回到全览">全览</button>
+  </div>
+</header>
+
+<nav class="legend" id="legend" aria-label="分支"></nav>
+<div class="hint" id="hint">拖拽平移 · 滚轮/双指缩放 · 放大可见子方向 · 点击编号星球进入</div>
+<div class="tip" id="tip" role="tooltip"></div>
+
+<canvas id="warp" aria-hidden="true"></canvas>
+<div id="flash" aria-hidden="true"></div>
+
+<section id="panel" aria-hidden="true">
+  <div class="p-top">
+    <button class="back" id="btnBack"><span>←</span> 返回星图</button>
+    <div class="crumb" id="crumb"></div>
+    <div class="hop">
+      <button id="btnPrev" title="上一个领域 (←)">‹ <span id="prevName"></span></button>
+      <button id="btnNext" title="下一个领域 (→)"><span id="nextName"></span> ›</button>
+    </div>
+  </div>
+  <div class="p-scroll" id="pScroll">
+    <div class="p-wrap">
+      <aside class="toc" id="toc"></aside>
+      <article class="doc" id="doc"></article>
+    </div>
+  </div>
+</section>
+
+<script src="data/found.js?v=5"></script>
+<script src="data/vision.js?v=5"></script>
+<script src="data/lang.js?v=5"></script>
+<script src="data/lang2.js?v=5"></script>
+<script src="data/decide.js?v=5"></script>
+<script src="data/decide2.js?v=5"></script>
+<script src="data/robot.js?v=5"></script>
+<script src="data/robot2.js?v=5"></script>
+<script src="data/robot3.js?v=5"></script>
+<script src="data/tools.js?v=5"></script>
+<script src="data/cross.js?v=5"></script>
+<script src="app.js?v=5"></script>
+</body>
+</html>
